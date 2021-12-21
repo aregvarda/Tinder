@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// MARK: - Drawing Constants
+let cardGradient = Gradient(colors: [Color.black.opacity(0), Color.black.opacity(0.5)])
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -27,10 +29,12 @@ struct ContentView: View {
                 }
             }
             // Card
-//            Image("p0")
-            RoundedRectangle(cornerRadius: 8)
+            ZStack {
+                Image("p0").resizable()
+                LinearGradient(gradient: cardGradient, startPoint: .top, endPoint: .bottom)
+            }
             // Bottom Stack
-            HStack {
+            HStack(spacing: 0) {
                 Button(action: {}) {
                     Image("refresh")
                 }
